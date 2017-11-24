@@ -8,12 +8,22 @@
 
 <ion-content padding>
 
-    <ion-searchbar
-    [(ngModel)]="myInput"
-    [showCancelButton]="shouldShowCancel"
-    (ionInput)="onInput($event)"
-    (ionCancel)="onCancel($event)">
+  <ion-searchbar (ionInput)="search($event)">
   </ion-searchbar>
+
+  <ion-card *ngFor="let comida of comidas | async" (click)="modal(comida)">
+    <img [src]="comida.image" />
+    <ion-card-content>
+      <ion-card-title>
+        {{ comida.nombre }}
+
+      </ion-card-title>
+      <p>
+        {{ comida.desc }}
+      </p>
+
+    </ion-card-content>
+  </ion-card>
 
 
 </ion-content>
