@@ -16,11 +16,26 @@ export class FirebaseProvider {
   }
 
   getComida(){
-    try{
-      return this.fb.list('comidas').valueChanges();
-    }catch(e){
-      console.log(e.message)
-    }
+    return this.fb.list('comidas').valueChanges();
   }
+
+  getComidaByID(id){
+    return this.fb.object('comidas/'+id).valueChanges();
+  }
+
+agregarPlato(nombre, proteinas, ch, grasas, calorias){
+  const plato = this.fb.database.ref('comidas').push();
+  var data = {
+    "calorias" : calorias,
+    "ch" : ch,
+    "grasas" : grasas,
+    "id" : plato.key,
+    "nombre" : nombre,
+    "proteinas" : proteinas
+  }
+  plato.set(data)
+
+}
+
 
 }

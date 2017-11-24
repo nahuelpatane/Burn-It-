@@ -1,21 +1,28 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>Burn It!</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   
-  <ion-card *ngFor="let comida of comidas | async">
-    <img [src]="comida.image"/>
+  <ion-card *ngFor="let comida of comidas | async" (click)="modal(comida)">
+    <img [src]="comida.image" />
     <ion-card-content>
       <ion-card-title>
-        {{ comida.nombre }}
+        {{ comida.nombre }}        
+
         </ion-card-title>
       <p>
         {{ comida.desc }}
       </p>
+        
     </ion-card-content>
   </ion-card>
+    
+
+  <ion-fab bottom right (click)="mostrarForm()">
+      <button ion-fab><ion-icon name="add"></ion-icon></button>
+    </ion-fab>
 
 </ion-content>
