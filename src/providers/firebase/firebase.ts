@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import * as firebase from 'firebase';
+import { LoadingController } from 'ionic-angular';
 
 
 /*
@@ -15,7 +16,7 @@ export class FirebaseProvider {
 
   storage = firebase.storage();
 
-  constructor(public http: HttpClient, public fb: AngularFireDatabase) {
+  constructor(public http: HttpClient, public fb: AngularFireDatabase, public loadingCtrl: LoadingController) {
   }
 
   getComida(){
@@ -31,12 +32,16 @@ export class FirebaseProvider {
   }
 
 agregarPlato(nombre, proteinas, ch, grasas, calorias, img: File){
+  let alertc = this.loadingCtrl.create({
+    content: 'Subiendo archivo'
+  });
+  
   const plato = this.fb.database.ref('comidas').push();
   const storageRef = this.storage.ref()
   var task = storageRef.child('IMAGE/'+plato.key).put(img)
   task.on(firebase.storage.TaskEvent.STATE_CHANGED, 
   (snap) => {
-    alert("Subiendo")
+    alertc.present();
   }, error => {
     plato.remove()
     alert(error)
@@ -51,7 +56,7 @@ agregarPlato(nombre, proteinas, ch, grasas, calorias, img: File){
       "proteinas" : proteinas
     }
     plato.set(data)
-    
+    alertc.dismiss()
   })
 
   
