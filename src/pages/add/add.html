@@ -14,37 +14,42 @@
 <ion-content padding>
 
 
-    <ion-list inset>
-        
-          <ion-item>
-            <ion-label>Nombre:</ion-label>
-            <ion-input [(ngModel)]="nombre" type="text"></ion-input>
-          </ion-item>
-        
-          <ion-item>
-            <ion-label>Calorias(Kcal):</ion-label>
-            <ion-input [(ngModel)]="calorias" type="number"></ion-input>
-          </ion-item>
+  <ion-list inset>
 
-          <ion-item>
-              <ion-label>Carbohidratos(g):</ion-label>
-              <ion-input [(ngModel)]="ch" type="number"></ion-input>
-            </ion-item>
+    <ion-item>
+      <ion-label>Nombre:</ion-label>
+      <ion-input [(ngModel)]="nombre" type="text"></ion-input>
+    </ion-item>
 
-            <ion-item>
-                <ion-label>Proteinas(g):</ion-label>
-                <ion-input [(ngModel)]="proteinas" type="number"></ion-input>
-              </ion-item>
+    <ion-item>
+      <ion-label>Imagen:</ion-label>
+      <ion-input class=fachero (change)="detectedFile($event)" type="file"></ion-input>
+    </ion-item>
 
-              <ion-item>
-                  <ion-label>Grasas(g):</ion-label>
-                  <ion-input [(ngModel)]="grasas" type="number"></ion-input>
-                </ion-item>
+    <ion-item>
+      <ion-label>Calorias(Kcal):</ion-label>
+      <ion-input [(ngModel)]="calorias" type="number"></ion-input>
+    </ion-item>
 
-        
-        </ion-list>
-        <button (click)="enviar()" full ion-button>Agregar</button>
-        
+    <ion-item>
+      <ion-label>Carbohidratos(g):</ion-label>
+      <ion-input [(ngModel)]="ch" type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Proteinas(g):</ion-label>
+      <ion-input [(ngModel)]="proteinas" type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Grasas(g):</ion-label>
+      <ion-input [(ngModel)]="grasas" type="number"></ion-input>
+    </ion-item>
+
+
+  </ion-list>
+  <button (click)="enviar()" full ion-button>Agregar</button>
+
 
 
 </ion-content>

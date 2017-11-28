@@ -26,7 +26,7 @@ var config = {
   authDomain: "burnit-1eab7.firebaseapp.com",
   databaseURL: "https://burnit-1eab7.firebaseio.com",
   projectId: "burnit-1eab7",
-  storageBucket: "",
+  storageBucket: "burnit-1eab7.appspot.com",
   messagingSenderId: "580211491804"
 };
 

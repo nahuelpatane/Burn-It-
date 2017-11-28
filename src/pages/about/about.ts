@@ -20,13 +20,10 @@ export class AboutPage {
 
   search($event){
     let q = $event.target.value;
-    console.log(q)
-    this.init.subscribe(platos => {
-      this.comidas = Observable.of(platos.filter(plato => (
+    this.init.subscribe(c => {
+      this.comidas = Observable.of(c.filter(plato => (
         plato.name.toUpperCase().indexOf(q.toUpperCase()) >= 0
       )))
     })
-
-    console.log(this.comidas)
   }
 }

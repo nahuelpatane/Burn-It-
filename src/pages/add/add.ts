@@ -22,6 +22,7 @@ export class AddPage {
   ch
   proteinas
   grasas
+  file
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public db: FirebaseProvider) {
@@ -30,13 +31,19 @@ export class AddPage {
   ionViewDidLoad() {
   }
 
+  detectedFile(event){
+    this.file = event.target.files[0]
+  }
+
   async enviar() {
     try {
-      await this.db.agregarPlato(this.nombre, this.proteinas, this.ch, this.grasas, this.calorias)
-      this.navCtrl.pop();      
+      await this.db.agregarPlato(this.nombre, this.proteinas, this.ch, this.grasas, this.calorias, this.file)
     }
     catch (error) {
       alert(error.message)
+    }
+    finally{
+      this.navCtrl.pop();      
     }
   }
 
