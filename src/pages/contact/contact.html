@@ -1,17 +1,35 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Contact
+      Random
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
+
+  <h1>¿No sabes que comer hoy?</h1>
+  <h2>Aprieta ese boton!</h2>
+  
+    <ion-card *ngIf="comida" >
+        <img [src]="comida.image" />
+        <ion-card-content>
+          <ion-card-title>
+            {{ comida.nombre }}        
+    
+            </ion-card-title>
+          <p>
+            {{ comida.desc }}
+          </p>
+            
+        </ion-card-content>
+      </ion-card>
+
+
+
+    <button class="botonsi" (click)="random()" ion-button round>Random</button>
+    
+
+
+
 </ion-content>
