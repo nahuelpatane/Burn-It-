@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { FirebaseProvider } from './../../providers/firebase/firebase';
-import { AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
-import { ModalController, NavParams } from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
 import { ModalPage } from '../../pages/modal/modal'
 import { AddPage } from '../add/add';
 
